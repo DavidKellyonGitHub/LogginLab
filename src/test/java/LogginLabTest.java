@@ -30,5 +30,21 @@ public class LogginLabTest {
                 assertFalse(lab.thresholdExceeds(i));
             }
         }
-    }
+      }
+      public void thresholdReached() {
+          Integer finalLimit2 = 6;
+
+          LogginLab lab = new LogginLab();
+          lab.setThreshold(finalLimit2);
+
+          for (Integer i = 1; i <= finalLimit2; i++) {
+              if (lab.thresholdReached(i)) {
+                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                assertTrue(lab.thresholdReached(i));
+              } else {
+                logger.log(Level.INFO, "Threshold finally reached!");
+                assertFalse(lab.thresholdReached(i));
+                }
+              }
+      }
 }
